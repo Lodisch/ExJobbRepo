@@ -7,74 +7,74 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>37577simonlod.SiolReciever</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\obj\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\siolReciever.Windows.exe">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\siolReciever.Windows.exe">
       <PackagePath>siolReciever.Windows.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\WindowsAzure.MobileServices.1.3.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\WindowsAzure.MobileServices.1.3.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\WindowsAzure.MobileServices.1.3.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\WindowsAzure.MobileServices.1.3.1\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\WindowsAzure.MobileServices.SQLiteStore.1.0.4\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\WindowsAzure.MobileServices.SQLiteStore.1.0.4\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll">
       <PackagePath>Microsoft.WindowsAzure.Mobile.SQLiteStore.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\SQLitePCL.3.8.7.2\lib\netcore451\SQLitePCL.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\SQLitePCL.3.8.7.2\lib\netcore451\SQLitePCL.dll">
       <PackagePath>SQLitePCL.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Extensions.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Extensions.dll">
       <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Primitives.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Primitives.dll">
       <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\SQLite.WinRT81\3.8.8.3\Redist\Debug\x86\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\packages\SQLitePCL.3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\packages\SQLitePCL.3.8.7.2\build\netcore451\SQLitePCL.Ext.dll">
       <PackagePath>SQLitePCL.Ext.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\Common\QuickStartTask.xbf">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\Common\QuickStartTask.xbf">
       <PackagePath>Common\QuickStartTask.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\siolReciever.Windows.xr.xml">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\siolReciever.Windows.xr.xml">
       <PackagePath>siolReciever.Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\Examination\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
