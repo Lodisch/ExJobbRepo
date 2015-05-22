@@ -65,6 +65,9 @@
     <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\AddUserInfoDialog.xbf">
+      <PackagePath>AddUserInfoDialog.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\siol\Documents\_Dev\_examDev\RecieverPrototype\siolReciever\siolReciever.Windows\bin\x86\Debug\Common\QuickStartTask.xbf">
       <PackagePath>Common\QuickStartTask.xbf</PackagePath>
     </AppxPackagedFile>

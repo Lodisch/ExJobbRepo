@@ -9,6 +9,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Linq;
 using Windows.Security.Credentials;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 // To add offline sync support, add the NuGet package Microsoft.WindowsAzure.MobileServices.SQLiteStore
 // to your project. Then, uncomment the lines marked // offline sync
@@ -21,22 +23,36 @@ using siolReciever.DataModel;
 
 namespace siolReciever
 {
-    sealed partial class MainPage: Page
+    sealed partial class MainPage : Page
     {
         private MobileServiceCollection<TodoItem, TodoItem> items;
+        private MobileServiceCollection<Receiver, Receiver> receivers;
+        private MobileServiceCollection<Announcement, Announcement> announcements;
+        private MobileServiceCollection<ReceiverGroup, ReceiverGroup> receiverGroups;
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
+        private IMobileServiceSyncTable<Receiver> receiverTable = App.MobileService.GetSyncTable<Receiver>(); // offline sync
+        private IMobileServiceSyncTable<Announcement> announcementTable = App.MobileService.GetSyncTable<Announcement>(); // offline sync
+        private IMobileServiceSyncTable<ReceiverGroup> groupTable = App.MobileService.GetSyncTable<ReceiverGroup>(); // offline sync
 
+        //public static ProfileFlyout MyFlyout;
+        public MobileServiceUser user;
         public MainPage()
         {
+            //CreateProfileFlyout();
+
             this.InitializeComponent();
         }
 
-        // Define a member variable for storing the signed-in user. 
-        public MobileServiceUser user;
+        // Define a member variable for storing the signed-in user.
 
-        // Define a method that performs the authentication process
-        // using a Facebook sign-in. 
+        public void CreateProfileFlyout()
+        {
+            //var profile = new ProfileFlyout();
+            //profile.FlyoutConfiguration();
+            //MyFlyout = profile;
+        }
+
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
             string message;
@@ -105,8 +121,44 @@ namespace siolReciever
                 }
                 message = string.Format("You are now logged in - {0}", user.UserId);
                 var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
+
+
                 await dialog.ShowAsync();
+
+            }
+
+        }
+
+        private async Task UserProfileDialog(Receiver existingUser)
+        {
+            if (existingUser == null)
+            {
+                var dialog = new AddUserInfoDialog(
+                    String.Format("Welcome {0}! It looks like you're new. Register you're profile information here!",
+                        App.MobileService.CurrentUser.UserId));
+
+                var groupResult = await groupTable.Where(g => g.Groupname == "DefaultGroup").ToListAsync();
+                ReceiverGroup defaultGroup = groupResult.FirstOrDefault();
+
+                bool result = await dialog.ShowAsync();
+                if (result != false)
+                {
+                    string firstname = dialog.Firstname.Text;
+                    string lastname = dialog.Lastname.Text;
+
+                    existingUser = new Receiver
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Firstname = firstname,
+                        Lastname = lastname,
+                        UserId = user.UserId,
+                        ReceiverGroup = defaultGroup
+                    };
+
+                    await receiverTable.InsertAsync(existingUser);
+                }
+
+                await RefreshTodoItems();
             }
         }
 
@@ -118,6 +170,89 @@ namespace siolReciever
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             await RefreshTodoItems();
+        }
+
+        private async void ManageProfile_Click(object sender, RoutedEventArgs e)
+        {
+            if (!ProfilePopup.IsOpen) { ProfilePopup.IsOpen = true; }
+
+            var results = await receiverTable.Where(u => u.UserId == App.MobileService.CurrentUser.UserId).ToListAsync();
+            Receiver existingUser = results.FirstOrDefault();
+
+            if (existingUser != null)
+            {
+                FirstnameTb.Text = existingUser.Firstname;
+                LastnameTb.Text = existingUser.Lastname;             
+            }
+        }
+
+        private async void SaveProfile_Click(object sender, RoutedEventArgs e)
+        {
+            await ManageUserProfile();
+            if (ProfilePopup.IsOpen) { ProfilePopup.IsOpen = false; }
+        }
+
+        private void CloseProfile_Click(object sender, RoutedEventArgs e)
+        {
+            if (ProfilePopup.IsOpen) { ProfilePopup.IsOpen = false; }
+        }
+
+        private async Task ManageUserProfile()
+        {
+            var results = await receiverTable.Where(u => u.UserId == App.MobileService.CurrentUser.UserId).ToListAsync();
+            Receiver existingUser = results.FirstOrDefault();
+
+            if (existingUser == null)
+            {
+                await SaveProfileInformation();
+            }
+            else
+            {
+                await UpdateUserInformation(existingUser);
+            }
+                      
+        }
+
+        private async Task UpdateUserInformation(Receiver existingUser)
+        {
+            var currentFirstname = existingUser.Firstname;
+            var currentLastname = existingUser.Lastname;
+
+            FirstnameTb.Text = existingUser.Firstname;
+            LastnameTb.Text = existingUser.Lastname;
+
+            if (currentFirstname != FirstnameTb.Text || currentLastname != LastnameTb.Text)
+            {
+                var currentUser = new Receiver
+                {
+                    Id = existingUser.Id,
+                    Firstname = FirstnameTb.Text,
+                    Lastname = LastnameTb.Text,
+                    UserId = existingUser.UserId,
+                    ReceiverGroup = existingUser.ReceiverGroup
+                };
+                await receiverTable.UpdateAsync(currentUser);
+            }
+        }
+
+        private async Task SaveProfileInformation()
+        {
+            var groupResult = await groupTable.Where(g => g.Groupname == "DefaultGroup").ToListAsync();
+            ReceiverGroup defaultGroup = groupResult.FirstOrDefault();
+
+            string firstname = FirstnameTb.Text;
+            string lastname = LastnameTb.Text;
+           
+            var currentUser = new Receiver
+            {
+                Id = Guid.NewGuid().ToString(),
+                Firstname = firstname,
+                Lastname = lastname,
+                UserId = user.UserId,
+                ReceiverGroup = defaultGroup
+            };
+
+            await receiverTable.InsertAsync(currentUser);
         }
 
         private async Task InsertTodoItem(TodoItem todoItem)
@@ -205,6 +340,9 @@ namespace siolReciever
             {
                 var store = new MobileServiceSQLiteStore("localstore.db");
                 store.DefineTable<TodoItem>();
+                store.DefineTable<Receiver>();
+                store.DefineTable<ReceiverGroup>();
+                store.DefineTable<Announcement>();
                 await App.MobileService.SyncContext.InitializeAsync(store);
             }
 
@@ -217,6 +355,7 @@ namespace siolReciever
             await todoTable.PullAsync("todoItems", todoTable.CreateQuery());
         }
 
-        #endregion 
+        #endregion
+
     }
 }

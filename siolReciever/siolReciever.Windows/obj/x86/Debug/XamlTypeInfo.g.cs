@@ -124,21 +124,25 @@ namespace siolReciever.siolReciever_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[8];
             _typeNameTable[0] = "siolReciever.QuickStartTask";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[2] = "Int32";
             _typeNameTable[3] = "String";
             _typeNameTable[4] = "siolReciever.MainPage";
             _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[6] = "siolReciever.AddUserInfoDialog";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.TextBox";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[8];
             _typeTable[0] = typeof(global::siolReciever.QuickStartTask);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[2] = typeof(global::System.Int32);
             _typeTable[3] = typeof(global::System.String);
             _typeTable[4] = typeof(global::siolReciever.MainPage);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[6] = typeof(global::siolReciever.AddUserInfoDialog);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -218,6 +222,19 @@ namespace siolReciever.siolReciever_Windows_XamlTypeInfo
             case 5:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
+
+            case 6:   //  siolReciever.AddUserInfoDialog
+                userType = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.AddMemberName("Label");
+                userType.AddMemberName("Firstname");
+                userType.AddMemberName("Lastname");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.TextBox
+                xamlType = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
             }
             return xamlType;
         }
@@ -253,6 +270,26 @@ namespace siolReciever.siolReciever_Windows_XamlTypeInfo
             var that = (global::siolReciever.QuickStartTask)instance;
             that.Description = (global::System.String)Value;
         }
+        private object get_3_AddUserInfoDialog_Label(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Label;
+        }
+        private void set_3_AddUserInfoDialog_Label(object instance, object Value)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            that.Label = (global::System.String)Value;
+        }
+        private object get_4_AddUserInfoDialog_Firstname(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Firstname;
+        }
+        private object get_5_AddUserInfoDialog_Lastname(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Lastname;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -281,6 +318,24 @@ namespace siolReciever.siolReciever_Windows_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_2_QuickStartTask_Description;
                 xamlMember.Setter = set_2_QuickStartTask_Description;
+                break;
+            case "siolReciever.AddUserInfoDialog.Label":
+                userType = (global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlMember(this, "Label", "String");
+                xamlMember.Getter = get_3_AddUserInfoDialog_Label;
+                xamlMember.Setter = set_3_AddUserInfoDialog_Label;
+                break;
+            case "siolReciever.AddUserInfoDialog.Firstname":
+                userType = (global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlMember(this, "Firstname", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_4_AddUserInfoDialog_Firstname;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "siolReciever.AddUserInfoDialog.Lastname":
+                userType = (global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_Windows_XamlTypeInfo.XamlMember(this, "Lastname", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_5_AddUserInfoDialog_Lastname;
+                xamlMember.SetIsReadOnly();
                 break;
             }
             return xamlMember;

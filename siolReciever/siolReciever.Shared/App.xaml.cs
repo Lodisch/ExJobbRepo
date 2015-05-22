@@ -8,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -107,6 +108,7 @@ namespace siolReciever
     {
         // Completes the sign-in process started by LoginAsync.
         // Change 'MobileService' to the name of your MobileServiceClient instance. 
+        ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
         App.MobileService.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
     }
 #endif

@@ -1,6 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\siol\documents\_dev\examination\recieverprototype\siolreciever\siolreciever.windows\obj\x86\debug\intermediatexaml\siolreciever.windows.exe" HashGuid="4612a4d7-e80b-20cb-d80a-c2cbe15bc2c8" />
+    <LocalAssembly PathName="c:\users\siol\documents\_dev\_examdev\recieverprototype\siolreciever\siolreciever.windows\obj\x86\debug\intermediatexaml\siolreciever.windows.exe" HashGuid="f1290ea6-d3fb-491c-0edd-5492a055912e" />
     <ReferenceAssembly PathName="c:\program files (x86)\microsoft sdks\windows\v8.1\extensionsdks\microsoft.vclibs\12.0\references\commonconfiguration\neutral\platform.winmd" HashGuid="58b6b6d1-928e-9908-9804-eb460e5e101b" />
     <ReferenceAssembly PathName="c:\users\siol\documents\_dev\_examdev\recieverprototype\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.dll" HashGuid="9ae27956-fc25-6346-a044-affad933acd5" />
     <ReferenceAssembly PathName="c:\users\siol\documents\_dev\_examdev\recieverprototype\packages\windowsazure.mobileservices.1.3.1\lib\netcore45\microsoft.windowsazure.mobile.ext.dll" HashGuid="c3fe55d4-dcfc-ac07-236d-f429b050553a" />

@@ -124,15 +124,21 @@ namespace siolReciever.siolReciever_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "siolReciever.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "siolReciever.AddUserInfoDialog";
+            _typeNameTable[4] = "String";
+            _typeNameTable[5] = "Windows.UI.Xaml.Controls.TextBox";
 
-            _typeTable = new global::System.Type[3];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::siolReciever.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::siolReciever.AddUserInfoDialog);
+            _typeTable[4] = typeof(global::System.String);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -193,16 +199,75 @@ namespace siolReciever.siolReciever_WindowsPhone_XamlTypeInfo
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
+
+            case 3:   //  siolReciever.AddUserInfoDialog
+                userType = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.AddMemberName("Label");
+                userType.AddMemberName("Firstname");
+                userType.AddMemberName("Lastname");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  String
+                xamlType = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Controls.TextBox
+                xamlType = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
             }
             return xamlType;
         }
 
 
+        private object get_0_AddUserInfoDialog_Label(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Label;
+        }
+        private void set_0_AddUserInfoDialog_Label(object instance, object Value)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            that.Label = (global::System.String)Value;
+        }
+        private object get_1_AddUserInfoDialog_Firstname(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Firstname;
+        }
+        private object get_2_AddUserInfoDialog_Lastname(object instance)
+        {
+            var that = (global::siolReciever.AddUserInfoDialog)instance;
+            return that.Lastname;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "siolReciever.AddUserInfoDialog.Label":
+                userType = (global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlMember(this, "Label", "String");
+                xamlMember.Getter = get_0_AddUserInfoDialog_Label;
+                xamlMember.Setter = set_0_AddUserInfoDialog_Label;
+                break;
+            case "siolReciever.AddUserInfoDialog.Firstname":
+                userType = (global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlMember(this, "Firstname", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_1_AddUserInfoDialog_Firstname;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "siolReciever.AddUserInfoDialog.Lastname":
+                userType = (global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("siolReciever.AddUserInfoDialog");
+                xamlMember = new global::siolReciever.siolReciever_WindowsPhone_XamlTypeInfo.XamlMember(this, "Lastname", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_2_AddUserInfoDialog_Lastname;
+                xamlMember.SetIsReadOnly();
+                break;
+            }
             return xamlMember;
         }
     }

@@ -35,11 +35,43 @@
 
                     <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
                         <TextBox Name="TextInput" Margin="5" MinWidth="300"></TextBox>
-                        <Button x:ConnectionId='3' Name="ButtonLogin"                           Visibility="Visible">Sign in</Button>
-                        <Button x:ConnectionId='4' Name="ButtonSave"                          IsEnabled="False">Save</Button>
+                        <Button x:ConnectionId='5' Name="ButtonLogin"                           Visibility="Visible">Sign in</Button>
+                        <Button x:ConnectionId='6' Name="ManageProfile" Content="User Profile"                             Visibility="Visible"></Button>
+                        <Button x:ConnectionId='7' Name="ButtonSave"                          IsEnabled="False">Save</Button>
                     </StackPanel>
-
                 </StackPanel>
+                <Popup x:Name="ProfilePopup" VerticalAlignment="Center">
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Rectangle x:Name="m_RectOne" Fill="LightGray" 
+                           VerticalAlignment="Top" 
+                           HorizontalAlignment="Left"
+                           Opacity="0.25"/>
+                        <Rectangle x:Name="m_RectTwo" Fill="Black" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Left"
+                           Height="180"
+                           />
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Margin="0, 30, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <TextBlock Text="User Profile" FontSize="20" HorizontalAlignment="Center" />
+                                <TextBox x:Name="FirstnameTb" Width="300" PlaceholderText="Firstname"></TextBox>
+                                <TextBox x:Name="LastnameTb" Width="300" PlaceholderText="Lastname"></TextBox>
+                                <Button x:ConnectionId='3' Margin="0" Content="Save or update Profile"                           HorizontalAlignment="Center" />
+                                <Button x:ConnectionId='4' Margin="0" Content="Close"                            HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock x:Name="m_LabelTxtBlock" FontSize="25" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBox x:Name="m_firstname" Height="20" VerticalAlignment="Center"/>
+                                <TextBox x:Name="m_lastname"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,20,0,0">
+                                <Button Content="OK" Margin="0,0,20,0" Click="OkClicked"/>
+                            </StackPanel>-->
+                        </StackPanel>
+                    </Grid>
+                </Popup>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
@@ -51,7 +83,7 @@
                     <local:QuickStartTask Number="2" Title="Query and Update Data" Description="Click refresh below to load the unfinished TodoItems from your database. Use the checkbox to complete and update your TodoItems" />
                     <Button x:ConnectionId='2' Margin="72,0,0,0" Name="ButtonRefresh"                            >Refresh</Button>
                 </StackPanel>
-
+                
                 <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
